@@ -1,0 +1,28 @@
+package com.bobo.esun.service.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.bobo.esun.model.Emp;
+import com.bobo.esun.repository.EmpRepository;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class EmpServiceImpl {
+	private EmpRepository empRepository;
+	
+	public List<Emp> getAllEmps(){
+		return empRepository.findAll();
+	}
+	
+	public Emp updateEmp(Emp emp) {
+        Emp existingEmp = empRepository.findById(emp.getId()).get();
+        existingEmp.setName(emp.getName());
+        existingEmp.setEmail(emp.getEmail());
+        Emp updatedEmp = empRepository.save(existingEmp);
+        return updatedEmp;
+    }
+}

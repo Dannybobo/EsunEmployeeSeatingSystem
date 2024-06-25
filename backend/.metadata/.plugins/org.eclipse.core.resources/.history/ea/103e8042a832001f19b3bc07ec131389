@@ -1,0 +1,37 @@
+package com.bobo.esun.controller;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bobo.esun.model.Seat;
+import com.bobo.esun.service.SeatService;
+
+import lombok.AllArgsConstructor;
+
+@RestController
+@AllArgsConstructor
+@RequestMapping("api/seats")
+public class SeatController {
+	
+	private SeatService seatService;
+	
+	@GetMapping
+	public ResponseEntity<List<Seat>> getAllSeats(){
+		List<Seat> emps = empService.getAllEmps();
+		return new ResponseEntity<>(emps, HttpStatus.OK);
+	}
+	@PutMapping("{id}")
+	public ResponseEntity<Emp> updateEmp(@PathVariable("id") Long id, @RequestBody Emp emp){
+		emp.setId(id);
+		Emp updatedEmp = empService.updateEmp(emp);
+		return new ResponseEntity<>(updatedEmp, HttpStatus.OK);
+	}
+}

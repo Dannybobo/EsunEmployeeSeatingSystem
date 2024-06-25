@@ -1,0 +1,5 @@
+spring.datasource.username=root
+spring.datasource.password=yo337071
+
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+spring.jpa.hibernate.ddl-auto=update

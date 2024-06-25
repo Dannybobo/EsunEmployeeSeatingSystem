@@ -1,0 +1,9 @@
+package com.bobo.esun.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.bobo.esun.model.Emp;
+
+public interface SeatRepository extends JpaRepository<Emp, Long>{
+
+}

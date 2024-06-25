@@ -1,0 +1,33 @@
+package com.bobo.esun.service.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.bobo.esun.model.Seat;
+import com.bobo.esun.repository.SeatRepository;
+import com.bobo.esun.service.SeatService;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class SeatServiceImpl implements SeatService {
+	private SeatRepository seatRepository;
+	
+	@Override
+	public List<Seat> getAllSeats(){
+		return empRepository.findAll();
+	}
+	
+	@Override
+	public Seat updateSeat(Seat seat) {
+		Seat existing = SeatRepository.findByFloorSeatSeq(seat.getFloor_seat_seq()).get();
+        existing.setName(emp.getName());
+        existing.setEmail(emp.getEmail());
+        existing.setEid(emp.getEid());
+        existing.setFloor_seat_seq(emp.getFloor_seat_seq());
+        Seat updatedEmp = empRepository.save(existingEmp);
+        return updatedEmp;
+    }
+}

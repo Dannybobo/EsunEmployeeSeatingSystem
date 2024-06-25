@@ -1,0 +1,10 @@
+package com.bobo.esun.service;
+
+import java.util.List;
+
+import com.bobo.esun.model.Emp;
+
+public interface EmpService {
+	List<Emp> getAllEmps();
+	Emp updatEmp(Emp emp);
+}
